@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rmsdesign/merchandiser/timesheetdetail.dart';
 
 class TimeSheet extends StatefulWidget {
   TimeSheet({Key? key}) : super(key: key);
@@ -33,11 +34,11 @@ class _TimeSheetState extends State<TimeSheet> {
                       ),
                        Padding(
                         padding: const EdgeInsets.only(left:10.0, right: 5),
-                        child: makeDashboardItem('Your Attendence', '116', Icons.calendar_month_rounded, 0XFFE84201, 0XFFFFF3EE),
+                        child: makeDashboardItem('Working & Effective Time', '12.82', Icons.lock_clock, 0XFFE84201, 0XFFFFF3EE),
                       ),
                        Padding(
                         padding: const EdgeInsets.only(left:5.0, right: 19),
-                        child: makeDashboardItem('Your Attendence', '116', Icons.calendar_month_rounded, 0XFFE84201, 0XFFFFF3EE),
+                        child: makeDashboardItem('Your Travel Time', '182', Icons.nordic_walking, 0XFFE84201, 0XFFFFF3EE),
                       ),
                     ],
                   ),
@@ -62,11 +63,12 @@ class _TimeSheetState extends State<TimeSheet> {
       child: InkWell(
         onTap: () {
           var _value = title;
-          if (_value == 'Scheduled Visits') {
-            // Navigator.of(context).pushNamed(ClientList.routeName);
-          } else if (_value == 'Unscheduled Visits') {
-          } else if (_value == "Scheduled Visits Done") {
-          } else if (_value == 'Unscheduled Visits Done') {}
+          if (_value == 'Your Attendence') {
+            Navigator.of(context)
+                                    .pushNamed(TimeSheetDetail.routeName);
+          } else if (_value == 'Working & Effective Time') {
+          } else if (_value == "Your Travel Time") {
+          } 
         },
         child: SingleChildScrollView(
           child: Column(

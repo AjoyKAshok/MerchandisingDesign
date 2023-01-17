@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rmsdesign/commonscreens/hqcommunication.dart';
+
+import '../../merchandiser/leavestatus.dart';
 
 class ActivityPerformance extends StatefulWidget {
   ActivityPerformance({Key? key}) : super(key: key);
@@ -224,11 +227,13 @@ class _ActivityPerformanceState extends State<ActivityPerformance> {
       child: InkWell(
         onTap: () {
           var _value = title;
-          if (_value == 'Scheduled Visits') {
-            // Navigator.of(context).pushNamed(ClientList.routeName);
-          } else if (_value == 'Unscheduled Visits') {
-          } else if (_value == "Scheduled Visits Done") {
-          } else if (_value == 'Unscheduled Visits Done') {}
+          if (_value == 'Available Leaves') {
+             Navigator.of(context)
+                                    .pushNamed(LeaveStatus.routeName);
+          } else if (_value == 'HQ Communication') {
+             Navigator.of(context)
+                                    .pushNamed(HQCommunication.routeName);
+          } 
         },
         child: SingleChildScrollView(
           child: Column(

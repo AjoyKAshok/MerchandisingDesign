@@ -1,10 +1,13 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:rmsdesign/commonscreens/hqcommunication.dart';
 import 'package:rmsdesign/commonscreens/loginscreen.dart';
 import 'package:rmsdesign/commonscreens/splashscreen.dart';
+import 'package:rmsdesign/merchandiser/leavestatus.dart';
 import 'package:rmsdesign/merchandiser/merchandiserjourneyplan.dart';
 import 'package:rmsdesign/merchandiser/merchdashboard.dart';
 import 'package:rmsdesign/merchandiser/outletdetails.dart';
+import 'package:rmsdesign/merchandiser/timesheetdetail.dart';
 import 'package:rmsdesign/merchandiser/weeksjourneyplan.dart';
 import 'package:rmsdesign/merchandiser/yettovisitjourneyplan.dart';
 import 'package:rmsdesign/utils/merchandiserdrawer.dart';
@@ -33,6 +36,9 @@ class MyApp extends StatelessWidget {
           YetToVisitStores.routeName: (ctx) => YetToVisitStores(),
           WeeklyJourneyPlan.routeName: (ctx) => WeeklyJourneyPlan(),
           OutletDetails.routeName: (ctx) => OutletDetails(),
+          LeaveStatus.routeName: (ctx) => LeaveStatus(),
+          HQCommunication.routeName: (ctx) => HQCommunication(),
+          TimeSheetDetail.routeName: (ctx) => TimeSheetDetail(),
               
         },
     );
