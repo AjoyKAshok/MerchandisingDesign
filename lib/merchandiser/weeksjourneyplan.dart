@@ -582,54 +582,54 @@ class _WeeklyJourneyPlanState extends State<WeeklyJourneyPlan> {
     bool isExpanded,
   ) {
     return ExpansionTile(
-      title: 
-      // Container(
-      //   height: 45,
-      //   width: MediaQuery.of(context).size.width,
-      //   decoration: BoxDecoration(
-      //     color: Colors.white,
-      //     borderRadius: BorderRadius.circular(6),
-      //   ),
-      //   child: 
-        Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(6),
-          ),
-          child: Row(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
+      title:
+          // Container(
+          //   height: 45,
+          //   width: MediaQuery.of(context).size.width,
+          //   decoration: BoxDecoration(
+          //     color: Colors.white,
+          //     borderRadius: BorderRadius.circular(6),
+          //   ),
+          //   child:
+          Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6),
                 color: Color(colorCode),
-                ),
-                width: 3,
-                height: 45,
               ),
-              const SizedBox(
-                width: 10,
+              width: 3,
+              height: 45,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Icon(
+              icon,
+              color: const Color(0XFF909090),
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            Text(
+              DayName,
+              style: const TextStyle(
+                color: Color(0XFF505050),
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
               ),
-              Icon(
-                icon,
-                color: const Color(0XFF909090),
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-              Text(
-                DayName,
-                style: const TextStyle(
-                  color: Color(0XFF505050),
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+            ),
 
-              // Icon(
-              //   addIcon,
-              //   color: Color(iconColorCode),
-              // ),
-            ],
-          ),
+            // Icon(
+            //   addIcon,
+            //   color: Color(iconColorCode),
+            // ),
+          ],
+        ),
         // ),
       ),
 
@@ -692,6 +692,135 @@ class _WeeklyJourneyPlanState extends State<WeeklyJourneyPlan> {
                             //   },
                             //   title: Text('First Card'),
                             // ),
+                            GestureDetector(
+                              child: const Text('First Card'),
+                              onTap: () {
+                                Navigator.of(context)
+                                    .pushNamed(OutletDetails.routeName);
+                              },
+                            ),
+                            Text('Second Card'),
+                            Text('First Card'),
+                            Text('Second Card'),
+                            Text('First Card'),
+                            Text('Second Card'),
+                            Text('First Card'),
+                            Text('Second Card'),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  ExpansionTile dayTile1(
+    String DayName,
+    IconData icon,
+    int colorCode,
+    // IconData addIcon,
+    int iconColorCode,
+    bool isExpanded,
+  ) {
+    return ExpansionTile(
+      title: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Row(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(6),
+                color: Color(colorCode),
+              ),
+              width: 3,
+              height: 45,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Icon(
+              icon,
+              color: const Color(0XFF909090),
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            Text(
+              DayName,
+              style: const TextStyle(
+                color: Color(0XFF505050),
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        // ),
+      ),
+
+      iconColor: Color(iconColorCode),
+      collapsedIconColor: Color(iconColorCode),
+      onExpansionChanged: (bool expanded) {
+        setState(() {
+          isExpanded = expanded;
+
+          print(isExpanded.toString());
+          isExpanded == true
+              ? DayName == 'Sunday'
+                  ? setState(() {
+                      // sundaytapped == true
+                      //     ? sundaytapped = false
+                      //     : sundaytapped = true;
+                    })
+                  : DayName == 'Monday'
+                      ? setState(() {
+                          // mondaytapped == true
+                          //     ? mondaytapped = false
+                          //     : mondaytapped = true;
+                        })
+                      : print('Chosen Date is not Sunday or Monday')
+              : print('$DayName collapsed');
+        });
+      },
+
+     
+
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 10,
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  height: 96,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    color: Color(0XFFEBEBEB),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 3,
+                        height: 96,
+                        color: Color(colorCode),
+                      ),
+                      SingleChildScrollView(
+                        child: Column(
+                          // mainAxisSize: MainAxisSize.min,
+                          children: [
+                            
                             GestureDetector(
                               child: const Text('First Card'),
                               onTap: () {

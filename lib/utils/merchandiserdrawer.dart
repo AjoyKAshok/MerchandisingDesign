@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rmsdesign/merchandiser/profilescreen.dart';
+import 'package:rmsdesign/utils/headerdrawer.dart';
 
 class MerchandiserDrawer extends StatefulWidget {
   MerchandiserDrawer({Key? key}) : super(key: key);
@@ -11,48 +13,80 @@ class _MerchandiserDrawerState extends State<MerchandiserDrawer> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      
-       child: Column(
-        children: [
-          AppBar(
-            title: Text('Menu'),
-            automaticallyImplyLeading: false,
+      child: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: [
+              HeaderDrawer(),
+              DrawerTiles(),
+            ],
           ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.home),
-            title: Text('Home Page'),
-            onTap: () {
-              // Navigator.of(context).pushReplacementNamed('/');
-              // Navigator.of(context)
-              //     .pushReplacementNamed(WelcomeScreen.routeName);
-            },
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.person_add_alt_1_sharp),
-            title: Text('My Profile'),
-            onTap: () {
-              // Navigator.of(context).pushNamed(Profiler.routeName);
-            },
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.people_alt_sharp),
-            title: Text('Refer Your Friends'),
-            onTap: () {
-              // Navigator.of(context).pushNamed(ReferencePage.routeName);
-            },
-          ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.feedback_sharp),
-            title: Text('Share Your Feddback'),
-            onTap: () {
-              // Navigator.of(context).pushReplacementNamed(Testimonial.routeName);
-            },
-          ),
-        ]),
+        ),
+      ),
+    );
+  }
+
+  Widget DrawerTiles() {
+    return Container(
+      padding: const EdgeInsets.only(
+        top: 15,
+      ),
+      child: Container(
+        height: MediaQuery.of(context).size.height,
+        child: ListView(
+          children: [
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text('Profile'),
+              onTap: () {
+                Navigator.of(context).pushNamed(ProfilePage.routeName);
+                // Navigator.of(context).pushReplacementNamed('/');
+                // Navigator.of(context)
+                //     .pushReplacementNamed(WelcomeScreen.routeName);
+              },
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.grey,
+            ),
+            ListTile(
+              leading: Icon(Icons.dataset_outlined),
+              title: Text('Logs'),
+              onTap: () {
+                // Navigator.of(context).pushReplacementNamed('/');
+                // Navigator.of(context)
+                //     .pushReplacementNamed(WelcomeScreen.routeName);
+              },
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.grey,
+            ),
+            ListTile(
+              leading: const Icon(Icons.add_moderator_outlined),
+              title: const Text('RMS Version'),
+              onTap: () {
+                // Navigator.of(context).pushReplacementNamed('/');
+                // Navigator.of(context)
+                //     .pushReplacementNamed(WelcomeScreen.routeName);
+              },
+            ),
+            const Divider(
+              thickness: 1,
+              color: Colors.grey,
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout_sharp),
+              title: const Text('Log Out'),
+              onTap: () {
+                // Navigator.of(context).pushReplacementNamed('/');
+                // Navigator.of(context)
+                //     .pushReplacementNamed(WelcomeScreen.routeName);
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

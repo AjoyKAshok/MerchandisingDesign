@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rmsdesign/utils/background.dart';
 
+import '../utils/constants.dart';
+
 class TimeSheetDetail extends StatefulWidget {
   static const routeName = '/TimeSheetDetails';
   TimeSheetDetail({Key? key}) : super(key: key);
@@ -70,11 +72,14 @@ class _TimeSheetDetailState extends State<TimeSheetDetail> {
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
-                              Text('Roja Ramanan', style: TextStyle(
+                              Text(
+                                'Roja Ramanan',
+                                style: TextStyle(
                                   color: Color(0XFF505050),
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                ),),
+                                ),
+                              ),
                             ],
                           ),
                           const SizedBox(
@@ -83,16 +88,22 @@ class _TimeSheetDetailState extends State<TimeSheetDetail> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: const [
-                              Text('Merchandiser Id',  style: TextStyle(
+                              Text(
+                                'Merchandiser Id',
+                                style: TextStyle(
                                   color: Color(0XFF909090),
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
-                                ),),
-                              Text('Emp7325', style: TextStyle(
+                                ),
+                              ),
+                              Text(
+                                'Emp7325',
+                                style: TextStyle(
                                   color: Color(0XFF505050),
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
-                                ),),
+                                ),
+                              ),
                             ],
                           ),
                         ],
@@ -130,7 +141,14 @@ class _TimeSheetDetailState extends State<TimeSheetDetail> {
                                       isTodaySelected = false;
                                     });
                                   },
-                                  child: Text('Year to Date', style: TextStyle(color: isYearToDateSelected ? Color(0XFFE84201) : Color(0XFF909090),),),
+                                  child: Text(
+                                    'Year to Date',
+                                    style: TextStyle(
+                                      color: isYearToDateSelected
+                                          ? Color(0XFFE84201)
+                                          : Color(0XFF909090),
+                                    ),
+                                  ),
                                 ),
                               ),
                               SizedBox(
@@ -174,7 +192,14 @@ class _TimeSheetDetailState extends State<TimeSheetDetail> {
                                     // Navigator.of(context).pushReplacementNamed(
                                     //     YetToVisitStores.routeName);
                                   },
-                                  child: Text('Month to Date', style: TextStyle(color: isMonthToDateSelected ? Color(0XFFE84201) : Color(0XFF909090),),),
+                                  child: Text(
+                                    'Month to Date',
+                                    style: TextStyle(
+                                      color: isMonthToDateSelected
+                                          ? Color(0XFFE84201)
+                                          : Color(0XFF909090),
+                                    ),
+                                  ),
                                 ),
                               ),
                               SizedBox(
@@ -216,7 +241,14 @@ class _TimeSheetDetailState extends State<TimeSheetDetail> {
                                       isTodaySelected = true;
                                     });
                                   },
-                                  child: Text('Today', style: TextStyle(color: isTodaySelected ? Color(0XFFE84201) : Color(0XFF909090),),),
+                                  child: Text(
+                                    'Today',
+                                    style: TextStyle(
+                                      color: isTodaySelected
+                                          ? Color(0XFFE84201)
+                                          : Color(0XFF909090),
+                                    ),
+                                  ),
                                 ),
                               ),
                               SizedBox(
@@ -247,13 +279,104 @@ class _TimeSheetDetailState extends State<TimeSheetDetail> {
                           ),
                         ],
                       ),
+                     
                     ),
                   ),
                 ),
+                 Padding(
+                   padding: const EdgeInsets.only(left: 20, right: 20.0),
+                   child: Container(
+                    height: MediaQuery.of(context).size.height,
+                     child: Column(
+                       children: [
+                         SizedBox(
+                        height: 9,
+                      ),
+                         Flexible(
+                           child: ListView.builder(
+                                    itemCount: 6,
+                                    itemBuilder: (context, int index) {
+                                      return timeCard(
+                                        index,
+                                        timeData[index].displayDate,
+                                        timeData[index].outletName,
+                                        timeData[index].checkInTime,
+                                        timeData[index].checkOutTime,
+                                      );
+                                    }),
+                         ),
+                       ],
+                     ),
+                   ),
+                 ),
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget timeCard(
+    int index,
+    String displayDate,
+    String outletName,
+    String checkInTime,
+    String checkOutTime,
+  ) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 10.0),
+      child: Container(
+        height: 106,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: 14,
+            top: 14,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('${timeData[index].displayDate}'),
+              SizedBox(
+                height: 18,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Outlet',),
+                      Text(outletName),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Check In',),
+                      Text(checkInTime),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Check Out',),
+                        Text(checkOutTime),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

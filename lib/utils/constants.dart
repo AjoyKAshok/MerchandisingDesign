@@ -105,8 +105,190 @@ class AppConstants {
   static const String POSM = "POSM";
   static const String location = "Location";
 
-
-
   // alias name : rameolic merchandising
   // password ; rameolic
 }
+
+class LeaveInfo {
+  String leaveReason;
+  String leaveFromDate;
+  String leaveToDate;
+  String leaveType;
+  String leaveStatus;
+  int colorCode;
+  LeaveInfo({
+    required this.leaveReason,
+    required this.leaveFromDate,
+    required this.leaveToDate,
+    required this.leaveType,
+    required this.leaveStatus,
+    required this.colorCode,
+  });
+}
+
+List<LeaveInfo> leave = [
+  LeaveInfo(
+    leaveReason: "Personal Reasons",
+    leaveFromDate: "2022-09-27",
+    leaveToDate: "2022-09-29",
+    leaveType: "Loss of Pay",
+    leaveStatus: "Rejected",
+    colorCode: 0XFFE43700,
+  ),
+  LeaveInfo(
+    leaveReason: "Severe Cough and Cold",
+    leaveFromDate: "2022-09-27",
+    leaveToDate: "2022-09-29",
+    leaveType: "Sick Leave",
+    leaveStatus: "Accepted",
+    colorCode: 0XFF00984F,
+  ),
+  LeaveInfo(
+    leaveReason: "Personal Reasons",
+    leaveFromDate: "2022-09-27",
+    leaveToDate: "2022-09-29",
+    leaveType: "Loss of Pay",
+    leaveStatus: "Pending",
+    colorCode: 0XFFFFB017,
+  ),
+  LeaveInfo(
+    leaveReason: "Personal Reasons",
+    leaveFromDate: "2022-09-27",
+    leaveToDate: "2022-09-29",
+    leaveType: "Loss of Pay",
+    leaveStatus: "Rejected",
+    colorCode: 0XFFE43700,
+  ),
+  LeaveInfo(
+    leaveReason: "Personal Reasons",
+    leaveFromDate: "2022-09-27",
+    leaveToDate: "2022-09-29",
+    leaveType: "Loss of Pay",
+    leaveStatus: "Accepted",
+    colorCode: 0XFF00984F,
+  ),
+  LeaveInfo(
+    leaveReason: "Personal Reasons",
+    leaveFromDate: "2022-09-27",
+    leaveToDate: "2022-09-29",
+    leaveType: "Loss of Pay",
+    leaveStatus: "Accepted",
+    colorCode: 0XFF00984F,
+  ),
+];
+
+class TimeSheetData {
+  String displayDate;
+  String outletName;
+  String checkInTime;
+  String checkOutTime;
+
+  TimeSheetData({
+    required this.displayDate,
+    required this.outletName,
+    required this.checkInTime,
+    required this.checkOutTime,
+  });
+}
+
+List<TimeSheetData> timeData = [
+  TimeSheetData(
+    displayDate: "January 25",
+    outletName: "YAS Mall",
+    checkInTime: "17:52:34",
+    checkOutTime: "18:20:12",
+  ),
+  TimeSheetData(
+    displayDate: "January 25",
+    outletName: "Marina Mall",
+    checkInTime: "17:52:34",
+    checkOutTime: "18:20:12",
+  ),
+  TimeSheetData(
+    displayDate: "January 25",
+    outletName: "Dubai Mall",
+    checkInTime: "17:52:34",
+    checkOutTime: "18:20:12",
+  ),
+  TimeSheetData(
+    displayDate: "January 25",
+    outletName: "Emirates Mall",
+    checkInTime: "17:52:34",
+    checkOutTime: "18:20:12",
+  ),
+  TimeSheetData(
+    displayDate: "January 25",
+    outletName: "Lulu Hypermarket",
+    checkInTime: "17:52:34",
+    checkOutTime: "18:20:12",
+  ),
+  TimeSheetData(
+    displayDate: "January 25",
+    outletName: "Al Quoz Mall",
+    checkInTime: "17:52:34",
+    checkOutTime: "18:20:12",
+  ),
+];
+
+class NotifcationData {
+  String displayName;
+  String subject;
+  String shortDescription;
+  String notificationTime;
+  bool unreadNotification;
+
+  NotifcationData({
+    required this.displayName,
+    required this.subject,
+    required this.shortDescription,
+    required this.notificationTime,
+    required this.unreadNotification,
+  });
+}
+
+List<NotifcationData> notifications = [
+  NotifcationData(
+    displayName: "AJ",
+    subject: "RMS",
+    shortDescription: "The Merchandising Solution",
+    notificationTime: "18:20:12",
+    unreadNotification: true,
+    
+  ),
+  NotifcationData(
+    displayName: "AJ",
+    subject: "Halo CRM",
+    shortDescription: "Constant companion of Etisalat",
+    notificationTime: "18:20:12",
+    unreadNotification: true,
+  ),
+  NotifcationData(
+    displayName: "AJ",
+    subject: "eBazaar",
+    shortDescription: "The Online Store",
+    notificationTime: "18:20:12",
+    unreadNotification: true,
+  ),
+  NotifcationData(
+    displayName: "AJ",
+    subject: "Van Sales",
+    shortDescription: "All Details in ONE App",
+    notificationTime: "18:20:12",
+    unreadNotification: true,
+  ),
+  NotifcationData(
+    displayName: "AJ",
+    subject: "RMS",
+    shortDescription: "The Merchandising Solution",
+    notificationTime: "18:20:12",
+    unreadNotification: true,
+  ),
+ 
+  NotifcationData(
+    displayName: "AJ",
+    subject: "RMS",
+    shortDescription: "The Merchandising Solution",
+    notificationTime: "18:20:12",
+    unreadNotification: true,
+  ),
+];

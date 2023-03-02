@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:rmsdesign/commonscreens/notificationpage.dart';
 import 'package:rmsdesign/utils/merchandiser/activityperformance.dart';
 import 'package:rmsdesign/utils/merchandiser/performanceindicators.dart';
 import 'package:rmsdesign/utils/merchandiser/timesheet.dart';
@@ -25,61 +26,6 @@ class _MerchandiserDashborardState extends State<MerchandiserDashborard> {
   Widget build(BuildContext context) {
     final items = <Widget>[
       const Icon(Icons.home),
-
-      // Container(
-      //   height: 60,
-      //   width: 60,
-      //   decoration: const BoxDecoration(
-      //     shape: BoxShape.circle,
-      //     gradient: LinearGradient(
-      //             begin: Alignment.topLeft,
-      //             end: Alignment.centerRight,
-      //             colors: [Color(0xFFF88200), Color(0xFFE43700)]),
-      //   ),
-      //     child: ElevatedButton(
-      //   onPressed: () {},
-      //   child: Text(
-      //     'START DAY',
-      //   ),
-      // )),
-
-      // GestureDetector(
-      //   onTap: () {},
-      //   child: Container(
-      //     height: 60,
-      //     width: 60,
-      //       decoration: const BoxDecoration(
-      //         shape: BoxShape.circle,
-      //         gradient: LinearGradient(
-      //             begin: Alignment.topLeft,
-      //             end: Alignment.centerRight,
-      //             colors: [Color(0xFFF88200), Color(0xFFE43700)]),
-      //       ),
-      //       child: const Center(
-      //         child: Text(
-      //           'START DAY',
-      //           style: TextStyle(
-      //             color: Colors.white,
-      //           ),
-      //           textAlign: TextAlign.center,
-      //         ),
-      //       )),
-      // ),
-
-      // FloatingActionButton(
-      //   backgroundColor: Colors.orange,
-      //   onPressed: () {
-      //     print('START DAY PRESSED');
-      //   },
-      //   child: const Text(
-      //     'START DAY',
-      //     textAlign: TextAlign.center,
-      //     style: TextStyle(
-      //       fontSize: 12,
-      //       fontWeight: FontWeight.bold,
-      //     ),
-      //   ),
-      // ),
       const Icon(Icons.notifications),
     ];
     return Scaffold(
@@ -246,12 +192,17 @@ class _MerchandiserDashborardState extends State<MerchandiserDashborard> {
       ),
       drawer: MerchandiserDrawer(),
       bottomNavigationBar: CurvedNavigationBar(
+        animationDuration: Duration(milliseconds: 300),
         backgroundColor: Colors.white,
         items: items,
         index: index ?? 0,
         height: 60,
         onTap: (index) => setState(() {
           this.index = index;
+          
+          index == 1
+              ? Navigator.of(context).pushNamed(NotificationsPage.routeName)
+              : null;
         }),
       ),
       body: Stack(
